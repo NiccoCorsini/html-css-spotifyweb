@@ -121,16 +121,19 @@ aside .aside-playlist{
 }
 
 /* chrome edge safari */
-aside .aside-playlist ul::-webkit-scrollbar {
+aside .aside-playlist ul::-webkit-scrollbar,
+main::-webkit-scrollbar{
     width: 4px;
 }
 
-aside .aside-playlist ul::-webkit-scrollbar-track {
+aside .aside-playlist ul::-webkit-scrollbar-track,
+main::-webkit-scrollbar{
     background: #a3a3a3;  
     border-radius: 2px;
 }
 
-aside .aside-playlist ul::-webkit-scrollbar-thumb {
+aside .aside-playlist ul::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar{
     background-color: rgba(0, 0, 0, 0.514);
     border-radius: 2px; 
 }
@@ -231,6 +234,22 @@ main{
     flex-basis: calc(100% - 220px);
     overflow-y: auto;
     padding-top: 80px;
+    scrollbar-width: thin;   
+    scrollbar-color: #4f4f4f rgba(0, 0, 0, 0.363); 
+}
+
+main::-webkit-scrollbar{
+    width: 8px;
+}
+
+main::-webkit-scrollbar-track{
+    background: rgba(0, 0, 0, 0.089);  
+    
+}
+
+main::-webkit-scrollbar-thumb{
+    background-color: #4f4f4f;
+    border-radius: 4px; 
 }
 
 /* FAKE HEADER */
@@ -394,7 +413,7 @@ main .music .cover:hover .layover{
 }
 
 main .music .cover:hover{
-    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.281);
+    box-shadow: 0px 1px 15px 0px rgba(0, 0, 0, 0.281);
 }
 
 main .music .cover .layover i{
