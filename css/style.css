@@ -37,8 +37,7 @@ ul li{
 /* aside general */
 aside,
 main{
-    height: calc(100vh - 80px);
-    
+    height: calc(100vh - 80px); 
 }
 
 aside{
@@ -62,6 +61,10 @@ aside a svg{
     margin-right: 3px;
 }
 
+.menu-voice{
+    display: inline;
+}
+
 /* aside up */
 aside .aside-up{
     padding-left: 15px;
@@ -75,14 +78,26 @@ aside .aside-head{
     margin-bottom: 1.5rem;
 }
 
-aside a svg path:not(path.active){
+aside a svg path.active{
+    fill: #fff;
+}
+
+aside a svg path.active-body{
     fill: currentColor;
+}
+
+aside a svg path:not(path.active){
+    
     transition: all 300ms;
 }
 
 aside .brand img{
     width: 70%;
     margin-bottom: 1.7rem;
+}
+
+aside .brand img.brand-mobile{
+    display: none;
 }
 
 aside .aside-head a.active::before{
@@ -116,11 +131,14 @@ aside a:not(a.brand)::before{
 /* firefox */
 aside .aside-playlist{
     overflow: hidden; 
+}
+
+/* chrome edge safari */
+aside .aside-playlist ul{
     scrollbar-width: thin;   
     scrollbar-color: #4f4f4f black; 
 }
 
-/* chrome edge safari */
 aside .aside-playlist ul::-webkit-scrollbar,
 main::-webkit-scrollbar{
     width: 4px;
@@ -239,17 +257,16 @@ main{
 }
 
 main::-webkit-scrollbar{
-    width: 8px;
+    width: 6px;
 }
 
 main::-webkit-scrollbar-track{
-    background: rgba(0, 0, 0, 0.089);  
-    
+    background:  #838383;  
 }
 
 main::-webkit-scrollbar-thumb{
-    background-color: #4f4f4f;
-    border-radius: 4px; 
+    background-color: #464646;
+    border-radius: 3px; 
 }
 
 /* FAKE HEADER */
@@ -342,18 +359,16 @@ main .navbar ul li a:hover{
     color: white;
 }
 
-
-
+/* MUSIC */
 main .music img{
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: fill;
 }
 
 main .music .col{
     width: calc((100vw - 220px) / 7);
     min-width: 148px;
-    height: auto;
     text-align: center;
 }
 
@@ -424,12 +439,18 @@ main .music .artists .cover{
     border-radius: 50%;
     overflow: hidden;
 }
+/* MAIN END */
 
 /* FOOTER */
+/* footer general */
 footer{
+    width: 100vw;
+    z-index: 2;
     padding: 0 0.7rem;
     height: 80px;
     background: #282828;
+    position: absolute;
+    bottom: 0;
 }
 
 footer .player img{
@@ -444,12 +465,20 @@ footer .player{
 }
 
 footer .player .left,
+footer .player .left .left-favourite,
 footer .player .center,
 footer .player .center .controls{
     display: flex;  
     align-items: center;
 }
 
+footer .player i,
+footer .player .right .audio,
+footer .player .center .command{
+    cursor: pointer;
+}
+
+/* current playing */
 footer .player .left img,
 footer .player .left i:not(:last-child){
     margin-right: 0.6rem;
@@ -470,12 +499,6 @@ footer .player .left .title > .song:hover{
     color: #fff;
 }
 
-footer .player i,
-footer .player .right .audio,
-footer .player .center .command{
-    cursor: pointer;
-}
-
 footer .player .left i{
     color: currentColor;
     transition: all 300ms;
@@ -485,6 +508,7 @@ footer .player .left i:hover{
     color: white;
 }
 
+/* player controls */
 footer .player .center .controls i:not(:last-child){
     font-size: 1rem;
     margin-right: 1rem;
@@ -512,6 +536,7 @@ footer .player .center .controls i:nth-child(3):hover{
 
 footer .player .center{
     flex-direction: column;
+    margin: 0 .2rem;
 }
 
 footer .player .center .progress-bar{
@@ -542,6 +567,7 @@ footer .player .center .command::before{
     left: -1.5rem;
     top: 50%;
     transform: translateY(-50%);
+    display: inline-block;
 }
 
 footer .player .center .command::after{
@@ -552,8 +578,10 @@ footer .player .center .command::after{
     right: -1.5rem;
     top: 50%;
     transform: translateY(-50%);
+    display: inline-block;
 }
 
+/* multimedial controls */
 footer .player .right i{
     font-size: 0.8rem;
     margin-right: 1rem;
@@ -566,6 +594,7 @@ footer .player .left{
     align-items: center;
 }
 
+/* audio modules */
 footer .player .right .volume-bar{
     height: 4px;
     border-radius: 2px;
@@ -613,4 +642,192 @@ footer .player .right .audio{
     display: flex;
     align-items: center;
     width: 100%;
+}
+
+footer .player .right .mobile-audio{
+    display: none;
+}
+
+/* ******************************** RESPONSIVE ********************************** */
+/* medium-large devices (small laptops & large tablets) < 1200px */
+@media screen and (max-width: 1200px){
+    /* main music */
+    main .music .col{
+        width: calc((100vw - 220px) / 5);
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    main .music{
+        padding: calc((100vw - 220px) / 5 / 8);
+    }
+
+    main .music .col:not(:last-child),
+    main .music .inner .grid-system:not(:last-child){
+    margin-right: calc((100vw - 220px) / 5 / 14);
+    }
+}
+
+/* medium-small devices (tablets & small tablets) < 768px */
+@media screen and (max-width: 768px){
+    /* main music */
+    main .music .col{
+        width: calc((100vw - 220px) / 2.5);
+        min-width: 125px;
+        text-align: center;
+    }
+    
+    main .music{
+        padding: calc((100vw - 220px) / 2.5 / 8);
+    }
+
+    main .music .col:not(:last-child),
+    main .music .inner .grid-system:not(:last-child){
+    margin-right: calc((100vw - 220px) / 2.5 / 14);
+    }
+
+    /* footer */
+    /* current playing */
+    footer .player .left .left-favourite{
+        flex-direction: column;
+    }
+
+    footer .player .left .left-favourite i{
+        padding: 2px 0;
+        margin: 0;
+    }
+
+    /* multimedial controls */
+    footer .player .right{
+        justify-content: flex-end;
+    }
+
+    /* mobile audio module */
+    footer .player .right .audio{
+        display: none;
+    }
+
+    footer .player .right .mobile-audio{
+        display: flex;
+        position: relative;
+    }
+
+    footer .player .right .mobile-audio .volume-bar-mobile{
+        cursor: pointer;
+        position: absolute;
+        top: -90px;
+        left: 5px;
+        height: 80px;
+        border-radius: 2px;
+        width: 4px;
+        background: #464646;
+        transition: all 300ms;
+        visibility: hidden;
+        opacity: 0
+    }
+    
+    footer .player .right .mobile-audio .volume-bar-mobile > .volume{
+        height: 45%;
+        width: 100%;
+        border-radius: 2px;
+        background: limegreen;
+        position: absolute;
+        bottom: 0;
+        transition: all 300ms;
+    }
+    
+    footer .player .right .mobile-audio .volume-bar-mobile > .volume .placeholder{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: .7rem;
+        height: .7rem;
+        border-radius: 50%;
+        background: white;
+        transition: all 300ms;
+        opacity: 1;
+    }
+
+    footer .player .right .mobile-audio:hover .volume-bar-mobile{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+/* x-small tablets < 600px */
+@media screen and (max-width: 600px){
+    /* aside */
+    .menu-voice{
+        display: none;
+    }
+
+    aside{
+        text-align: center;
+        flex-basis: 50px;
+        padding: 15px 0 8px 0;
+        overflow: hidden;
+    }
+
+    aside .aside-up,
+    aside .aside-user{
+        padding: 0;
+    }
+
+    aside .aside-user hr{
+        border-color: #000;
+    }
+
+    aside .brand img.brand-desktop{
+        display: none;
+    }
+
+    aside .brand img.brand-mobile{
+        display: inline-block;
+    }
+
+    aside .aside-playlist{
+        display: none;
+    }
+    
+    /* main */
+    main{
+        flex-basis: calc(100% - 50px);
+    }
+
+    main .fake-header{
+        width: calc(100% - 50px);
+    }
+
+    main .music .col{
+        width: calc((100vw - 50px) / 2.5);
+        min-width: 125px;
+        text-align: center;
+    }
+    
+    main .music{
+        padding: calc((100vw - 50px) / 2.5 / 8);
+    }
+
+    main .music .col:not(:last-child),
+    main .music .inner .grid-system:not(:last-child){
+    margin-right: calc((100vw - 50px) / 2.5 / 14);
+    }
+
+    /* footer */
+    footer .player .left .title{
+        margin-right: 0.5rem;
+    }
+}
+
+/* large smartphones & smartphones < 500px  */
+@media screen and (max-width: 500px){
+    /* footer */
+    footer .player .left .title{
+        display: none;
+    }
+
+    footer .player .right i:nth-child(2){
+        display: none;
+    }
 }
