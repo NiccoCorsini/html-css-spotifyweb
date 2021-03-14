@@ -385,6 +385,10 @@ main .music .inner .grid-system{
     margin: 2rem 0;
 }
 
+main .music h2{
+    margin-top: 2rem;
+}
+
 main .music h2,
 main .music h4{
     margin-bottom: 0.3rem;
