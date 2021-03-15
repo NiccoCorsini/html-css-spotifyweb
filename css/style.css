@@ -282,10 +282,9 @@ main::-webkit-scrollbar-thumb{
 
 /* FAKE HEADER */
 main .fake-header{
-
     top: 0;
     height: 80px;
-    background: rgba(0, 0, 0, 0.363);
+    background: rgba(0, 0, 0, 0.411);
     justify-content: flex-end;
     padding-right: 24px;
     z-index: 1;
@@ -687,7 +686,7 @@ footer .player .right .mobile-audio{
 @media screen and (max-width: 600px){
     /* aside */
     .menu-voice{
-        display: none;
+        display: none !important;
     }
 
     aside{
