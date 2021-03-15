@@ -371,6 +371,8 @@ main .music .col{
     min-width: 148px;
     text-align: center;
     margin: 2rem 0;
+    height: fit-content;
+    height: -moz-fit-content;
 }
 
 main .music .inner{
