@@ -385,6 +385,7 @@
                     <i class="material-icons c-pointer">replay</i>
                 </div>
                 <div class="command c-pointer pr">
+                    <div id="song-timer">0:25</div>
                     <div class="progress-bar">
                         <div class="progress t-all pr h100">
                             <div class="placeholder t-all pa"></div>
@@ -395,12 +396,12 @@
 
             <!-- multimedial controls -->
             <div class="right d-flex c-items">
-                <i class="fas fa-list c-pointer"></i>
-                <i class="fas fa-tv c-pointer"></i>
+                <i class="fas fa-list c-pointer t-all"></i>
+                <i class="fas fa-tv c-pointer t-all"></i>
 
                 <!-- mobile volume module -->
                 <div class="mobile-audio c-pointer pr">
-                    <i class="fas fa-volume-up c-pointer"></i>
+                    <i class="fas fa-volume-up c-pointer t-all"></i>
                     <div class="volume-bar-mobile t-all c-pointer pa">
                         <div class="volume w100 pa">
                             <div class="placeholder t-all pa"></div>
@@ -410,7 +411,7 @@
 
                 <!-- desktop volume module -->
                 <div class="audio c-pointer d-flex c-items w100">
-                    <i class="fas fa-volume-up c-pointer"></i>
+                    <i class="fas fa-volume-up c-pointer t-all"></i>
                     <div class="volume-bar w100">
                         <div class="volume t-all pr h100">
                             <div class="placeholder t-all pa"></div>
@@ -421,9 +422,11 @@
             </div>
 
         </section>
-
+        
     </footer>
     
+    <script src="countdown.js"></script>
+
 </body>
 
 </html>

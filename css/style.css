@@ -185,8 +185,13 @@ aside .aside-playlist ul li a i{
     border-radius: 2px;
 }
 
-aside .aside-playlist ul li:first-child a{
+aside .aside-playlist ul li:first-child a,
+aside .aside-playlist ul li:first-child a i{
     font-size: 16px;
+}
+
+aside .aside-playlist ul li:first-child{
+    height: 44px;
 }
 
 /* aside user */
@@ -235,7 +240,7 @@ aside .aside-playlist ul li:first-child a:hover{
 
 aside .aside-playlist ul li a:hover i{
     background-color: white;
-    margin-bottom: 4px;
+    padding: 12px;
 }
 
 aside .aside-user a:first-child:hover svg {
@@ -513,17 +518,26 @@ footer .player .center .progress-bar{
 }
 
 footer .player .center .progress-bar > .progress{
-    width: 25%;
+    width: 9%;
     border-radius: 2px;
     background: #838383;
+    animation: progress 250s linear forwards;
+}
+
+@keyframes progress{
+    from{
+        width: 9%;
+    }
+    to{
+        width: 100%;
+    }
 }
 
 footer .player .center .command{
     padding: 0.3rem;
 }
 
-footer .player .center .command::before{
-    content: '0:25';
+footer .player .center .command #song-timer{
     font-size: 0.6rem;
     color: white;
     position: absolute;
@@ -548,6 +562,11 @@ footer .player .center .command::after{
 footer .player .right i{
     font-size: 0.8rem;
     margin-right: 1rem;
+    color: #838383;
+}
+
+footer .player .right i:hover{
+    color: white;
 }
 
 footer .player .right,
@@ -733,5 +752,16 @@ footer .player .right .mobile-audio{
 
     footer .player .right i:nth-child(2){
         display: none;
+    }
+}
+
+/* height breakpoint for UI improve performance */
+@media screen and (max-height: 640px){
+    main .fake-header{
+        display: none;
+    }
+
+    main .scrollable{
+        padding-top: 0.6rem;
     }
 }
